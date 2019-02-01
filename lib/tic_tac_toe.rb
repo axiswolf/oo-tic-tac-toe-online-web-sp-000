@@ -12,23 +12,23 @@ class TicTacToe
   [0, 4, 8],
   [6, 4, 2]
 ]
-def input_to_index(user_input)
+  def input_to_index(user_input)
   user_input.to_i - 1
 end
 
-def move(board, index, current_player)
+  def move(board, index, current_player)
   board[index] = current_player
 end
 
-def position_taken?(board, index)
+  def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
 
-def valid_move?(board, index)
+  def valid_move?(board, index)
   index.between?(0,8) && !position_taken?(board, index)
 end
 
-def turn_count(board)
+  def turn_count(board)
   turn = 0
   board.each do |index|
     if index == "X" || index == "O"
@@ -38,7 +38,7 @@ def turn_count(board)
   return turn
 end
 
-def current_player(board)
+  def current_player(board)
   #if the turn count is an even number, that means O just went, so the next/current player is X
   num_turns = turn_count(board)
   if num_turns % 2 == 0
@@ -49,7 +49,7 @@ def current_player(board)
   return player
 end
 
-def turn(board)
+  def turn(board)
   puts "Please choose a number 1-9:"
   user_input = gets.chomp
   index = input_to_index(user_input)
@@ -62,7 +62,7 @@ def turn(board)
   end
 end
 
-def won?(board)
+  def won?(board)
   WIN_COMBINATIONS.each {|win_combo|
     index_0 = win_combo[0]
     index_1 = win_combo[1]
@@ -81,11 +81,11 @@ def won?(board)
   return false
 end
 
-def full?(board)
+  def full?(board)
   board.all? {|index| index == "X" || index == "O"}
 end
 
-def draw?(board)
+  def draw?(board)
   if !won?(board) && full?(board)
     return true
   else
@@ -93,7 +93,7 @@ def draw?(board)
   end
 end
 
-def over?(board)
+  def over?(board)
   if won?(board) || draw?(board)
     return true
   else
@@ -101,7 +101,7 @@ def over?(board)
   end
 end
 
-def winner (board)
+  def winner (board)
   index = []
   index = won?(board)
   if index == false
@@ -115,7 +115,7 @@ def winner (board)
   end
 end
 
-def play(board)
+  def play(board)
   until over?(board) == true
     turn(board)
   end
