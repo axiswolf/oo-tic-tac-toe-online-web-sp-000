@@ -76,7 +76,7 @@ class TicTacToe
     elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
       return win_combo
     end
-  }
+    }
     return false
   end
 
@@ -140,3 +140,4 @@ class TicTacToe
     puts "-----------"
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
+learn
