@@ -124,7 +124,7 @@ class TicTacToe
   elsif draw?(board)
     puts "Cats Game!"
   end
-
+  end
   def current_player
     turn_count % 2 == 0 ? "X" : "O"
   end
@@ -140,4 +140,4 @@ class TicTacToe
     puts "-----------"
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
-end
+
